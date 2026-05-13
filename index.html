@@ -63,15 +63,20 @@
             }
         }
 
-        /* Custom Cursor */
-        body {
-            cursor: url('assets/cursor.png') 6 6, auto;
-        }
-
-        a,
-        button {
-            cursor: url('assets/cursor.png') 6 6, pointer;
-        }
+            body {
+                cursor: url('assets/cursor.png') 10 10, auto;
+            }
+            
+            /* Clicked Cursor */
+            body.cursor-clicking {
+                cursor: url('assets/cursorhit.png') 10 10, auto;
+            }
+            
+            /* Links + Buttons */
+            a,
+            button {
+                cursor: inherit;
+            }
     </style>
 </head>
 
@@ -115,7 +120,7 @@
                 alt="Background">
 
             <!-- White Overlay -->
-            <div class="absolute inset-0 bg-white/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/75 to-white/35"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -134,7 +139,7 @@
                         <!-- Logos -->
                         <div class="flex items-center gap-4 mt-4 flex-wrap">
 
-                            <img src="assets/Takeda.jpeg"
+                            <img src="assets/TakeDa.jpeg"
                                 alt="Takeda"
                                 class="h-10 object-contain">
 
@@ -598,6 +603,14 @@
             duration: 800,
         });
     </script>
-
+    <script>
+        document.addEventListener('mousedown', () => {
+            document.body.classList.add('cursor-clicking');
+        });
+    
+        document.addEventListener('mouseup', () => {
+            document.body.classList.remove('cursor-clicking');
+        });
+    </script>
 </body>
 </html>
